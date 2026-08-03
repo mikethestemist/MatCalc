@@ -42,10 +42,9 @@ def is_square_matrix(m):
     return False
 
 def can_multiply(m1, m2): 
-  m1_count = get_order(m1)
-  m2_count = get_order(m2)
-  return (m1_count[0] == m2_count[1] and m1_count[1] == m2_count[0] and 
-          is_valid_matrix(m1) and is_valid_matrix(m2))
+  m1_row_count = get_order(m1)[0]
+  m2_col_count = get_order(m2)[1]
+  return m1_row_count == m2_col_count
 
 def generate_identity_matrix(square_size): 
   m = []
@@ -95,7 +94,6 @@ def subtract_matrices(m1, m2):
 
 def multiply(m1_or_scalar, m2): 
   if type(m1_or_scalar) == int or type(m1_or_scalar) == float: 
-    # TODO: add functionality for scaler multiplication 
     if is_valid_matrix(m2): 
       s = m1_or_scalar
       m = m2

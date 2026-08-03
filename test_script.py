@@ -9,8 +9,15 @@ P = [[5], [9]]
 print(mc.determinant(A))
 print(mc.cofactor(A))
 print(mc.transpose(mc.cofactor(A)))
+
+print('-' * 40)
+
 print(mc.adjunt(A))
 print(mc.multiply(1/mc.determinant(A), mc.adjunt(A)))
+print(mc.inverse(A))
+
+print('-' * 40)
+
 print(mc.multiply(mc.inverse(A), P))
 print(mc.solve_linear_system(A, P))
 
