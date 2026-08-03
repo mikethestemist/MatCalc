@@ -135,7 +135,14 @@ def minor(m_row, n_column, matrix):
     return minor_matrix
   
 def cofactor(m): 
-  pass
+  if is_square_matrix(m):
+    matrix = []
+    for i in range(len(m)): 
+      row = []
+      for j in range(len(m[i])): 
+        row.append(((-1) ** (i + j)) * determinant(minor(i, j, m)))
+      matrix.append(row)
+    return matrix
 
 def determinant(m):
   if is_square_matrix(m):
@@ -149,7 +156,8 @@ def determinant(m):
         result += ((-1) ** i ) * m[0][i] * determinant(minor(0, i, m))
       return result
   else: 
-    print(f"{m} isn't a square matrix, the determinant cannot be found.")
+    print(f"{m} isn't a square matrix, the determinant and cofactor of this matrix cannot be found.")
+
 def adjunt(m): 
   return transpose(cofactor(m))
 
