@@ -83,7 +83,7 @@ def subtract_matrices(m1, m2):
     print(m1, 'and', m2, 'do not have the same order.')
 
 def multiply(m1_or_scalar, m2): 
-  if type(m1_or_scalar) == int: 
+  if type(m1_or_scalar) == int or type(m1_or_scalar) == float: 
     # TODO: add functionality for scaler multiplication 
     if is_valid_matrix(m2): 
       s = m1_or_scalar
@@ -162,4 +162,4 @@ def adjunt(m):
   return transpose(cofactor(m))
 
 def inverse(m): 
-  return adjunt(m) / determinant(m)
+  return multiply(determinant(m) ** (-1), adjunt(m))
