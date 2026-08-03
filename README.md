@@ -27,7 +27,7 @@ This script was intended to be used as a library or module in another file by be
 ```
 simultaneous_equation_solver.py
 
-import matrix_calculator as mc
+import MatCalc as mc
 
 # A * X = P
 # X = inv(A) * P

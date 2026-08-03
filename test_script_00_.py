@@ -1,8 +1,4 @@
-import matrix_calculator as mc 
-
-mc.generate_identity_matrix(4)
-
-import matrix_calculator as mc
+import MatCalc as mc
 
 # A * X = P
 # X = inv(A) * P
