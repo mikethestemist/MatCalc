@@ -1,3 +1,5 @@
+from random import randint
+
 # -----   Matrix Sample   ----- #
 sample_matrix = [[1, 2, 3], 
                  [4, 5, 6], 
@@ -54,6 +56,15 @@ def generate_identity_matrix(square_size):
         row.append(1)
       else: 
         row.append(0)
+    m.append(row)
+  return m
+
+def gen_rand(m_row, n_row, x_range): 
+  m = []
+  for i in range(m_row): 
+    row = []
+    for j in range(n_row): 
+      row.append(randint(0, x_range))    
     m.append(row)
   return m
 
@@ -163,3 +174,7 @@ def adjunt(m):
 
 def inverse(m): 
   return multiply(determinant(m) ** (-1), adjunt(m))
+
+# -----   Custom Calculation Functions   ----- #
+def solve_linear_system(A, P): 
+  return multiply(inverse(A), P)

@@ -10,7 +10,11 @@ print(mc.determinant(A))
 print(mc.cofactor(A))
 print(mc.transpose(mc.cofactor(A)))
 print(mc.adjunt(A))
-print(mc.multiply((1/mc.determinant(A)), mc.adjunt(A)))
+print(mc.multiply(1/mc.determinant(A), mc.adjunt(A)))
+print(mc.multiply(mc.inverse(A), P))
+print(mc.solve_linear_system(A, P))
+
+print('-' * 40)
 
 print(mc.sample_matrix, mc.generate_identity_matrix(mc.get_order(mc.sample_matrix)[0]))
 print(mc.multiply(mc.sample_matrix, mc.generate_identity_matrix(mc.get_order(mc.sample_matrix)[0])))
