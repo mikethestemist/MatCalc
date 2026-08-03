@@ -137,9 +137,19 @@ def minor(m_row, n_column, matrix):
 def cofactor(m): 
   pass
 
-def determinant(m): 
-  pass
-
+def determinant(m):
+  if is_square_matrix(m):
+    if get_order(m) == (1, 1): 
+      return m[0][0]
+    elif get_order(m) == (2, 2): 
+      return m[0][0] * m[1][1] - m[0][1] * m[1][0]
+    else: 
+      result = 0
+      for i in range(len(m[0])): 
+        result += ((-1) ** i ) * m[0][i] * determinant(minor(0, i, m))
+      return result
+  else: 
+    print(f"{m} isn't a square matrix, the determinant cannot be found.")
 def adjunt(m): 
   return transpose(cofactor(m))
 
