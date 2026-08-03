@@ -15,17 +15,17 @@
 #     and square or dimension of the matrix
 
 # -----   Matrix Sample   ----- #
-matrix_sample = [[1, 2, 3], 
+sample_matrix = [[1, 2, 3], 
                  [4, 5, 6], 
                  [7, 8, 9]]
-bad_matrix_sample = [[1, 2,], 
+bad_sample_matrix = [[1, 2,], 
                  [4, 5, 6], 
                  [7, 8, 9]]
 
 # print(matrix_sample)
 
 # -----   Utilities and Checks   ----- #
-def column_count_is_uniform(m): 
+def is_valid_matrix(m): 
   columns = set()
   for row in m: 
     columns.add(len(row))  
@@ -36,7 +36,7 @@ def column_count_is_uniform(m):
     return False
 
 def get_order(m): 
-  if column_count_is_uniform(m): 
+  if is_valid_matrix(m): 
     """m: rows, n: columns / entries per row"""
     m_columns = len(m[0])
     n_rows = len(m)
@@ -50,7 +50,7 @@ def is_square_matrix(m):
   columns = set()
   for row in m: 
     columns.add(len(row))  
-  if column_count_is_uniform(m) and rows == sorted(columns)[0]: 
+  if is_valid_matrix(m) and rows == sorted(columns)[0]: 
     return True
   elif rows != sorted(columns)[0]: 
     return False
@@ -59,7 +59,7 @@ def can_multiply(m1, m2):
   m1_count = get_order(m1)
   m2_count = get_order(m2)
   return (m1_count[0] == m2_count[1] and m1_count[1] == m2_count[0] and 
-          column_count_is_uniform(m1) and column_count_is_uniform(m2))
+          is_valid_matrix(m1) and is_valid_matrix(m2))
 
 def generate_identity_matrix(square_size): 
   m = []
@@ -116,8 +116,27 @@ def multiply_matrices(m1, m2):
 
 # -----   Matrix Functions   ----- #
 def transpose(m): 
-  pass 
+  if is_valid_matrix(m):
+    m_new = []
+    for i in range(len(m)): 
+      row = []
+      for j in range(len(m[i])): 
+        row.append(m[j][i])
+      m_new.append(row)
+    return m_new
 
+def minor(m_row, n_column, matrix): 
+  if is_valid_matrix(matrix): 
+    minor_matrix = []
+    for i in range(len(matrix)): 
+      row = []
+      for j in range(len(matrix[i])): 
+        if i != m_row and j != n_column:
+          row.append(matrix[i][j])
+      if row: 
+        minor_matrix.append(row)
+    return minor_matrix
+  
 def cofactor(m): 
   pass
 
