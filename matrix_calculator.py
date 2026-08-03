@@ -110,6 +110,9 @@ def multiply_matrices(m1, m2):
         row.append(total)
       result.append(row)
     return result
+  elif type(m1) == int or float: 
+    # TODO: add functionality for scaler multiplication 
+    pass
 # print(multiply_matrices(matrix_sample, matrix_sample))
 # print(matrix_sample, generate_identity_matrix(3))
 # print(multiply_matrices(matrix_sample, [[j * 3 for j in i] for i in generate_identity_matrix(3)]))
