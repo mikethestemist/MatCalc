@@ -37,6 +37,7 @@ def column_count_is_uniform(m):
 
 def get_order(m): 
   if column_count_is_uniform(m): 
+    """m: rows, n: columns / entries per row"""
     m_columns = len(m[0])
     n_rows = len(m)
     return (m_columns, n_rows )
@@ -55,11 +56,12 @@ def is_square_matrix(m):
     return False
 
 def can_multiply(m1, m2): 
-  m1_row_count = len(m1[0])
-  m2_column_count = len(m1)
-  return m1_row_count == m2_column_count and column_count_is_uniform(m1) and column_count_is_uniform(m2)
+  m1_count = get_order(m1)
+  m2_count = get_order(m2)
+  return (m1_count[0] == m2_count[1] and m1_count[1] == m2_count[0] and 
+          column_count_is_uniform(m1) and column_count_is_uniform(m2))
 
-def make_identity_matrix(square_size): 
+def generate_identity_matrix(square_size): 
   m = []
   for i in range(square_size): 
     row = []
@@ -73,13 +75,44 @@ def make_identity_matrix(square_size):
 
 # -----   Basic Operations   ----- #
 def add_matrices(m1, m2): 
-  pass
+  if has_same_order(m1, m2): 
+    result = []
+    for i in zip(m1, m2): 
+      row = []
+      for j in range(len(i[0])): 
+        row.append(i[0][j] + i[1][j])
+      result.append(row)
+    return result
+  else: 
+    print(m1, 'and', m2, 'do not have the same order.')
 
 def subtract_matrices(m1, m2): 
-  pass
+  if has_same_order(m1, m2): 
+    result = []
+    for i in zip(m1, m2): 
+      row = []
+      for j in range(len(i[0])): 
+        row.append(i[0][j] - i[1][j])
+      result.append(row)
+    return result
+  else: 
+    print(m1, 'and', m2, 'do not have the same order.')
 
 def multiply_matrices(m1, m2): 
-  pass
+  if can_multiply(m1, m2): 
+    result = []
+    for i in range(len(m1)): 
+      row = []
+      for j in range(len(m2[0])):
+        total = 0
+        for k in range(len(m1[0])):
+          total += m1[i][k] * m2[k][j]
+        row.append(total)
+      result.append(row)
+    return result
+# print(multiply_matrices(matrix_sample, matrix_sample))
+# print(matrix_sample, generate_identity_matrix(3))
+# print(multiply_matrices(matrix_sample, [[j * 3 for j in i] for i in generate_identity_matrix(3)]))
 
 # -----   Matrix Functions   ----- #
 def transpose(m): 
