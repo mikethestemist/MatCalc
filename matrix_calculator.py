@@ -35,6 +35,15 @@ def column_count_is_uniform(m):
     print(f'{m} has inconsitent column entries.')
     return False
 
+def get_order(m): 
+  if column_count_is_uniform(m): 
+    m_columns = len(m[0])
+    n_rows = len(m)
+    return (m_columns, n_rows )
+
+def has_same_order(m1, m2): 
+  return get_order(m1) == get_order(m2)
+
 def is_square_matrix(m): 
   rows = len(m)
   columns = set()
