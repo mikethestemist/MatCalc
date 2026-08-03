@@ -2,7 +2,7 @@
 
 This is a module built to perform simple operations on matrices. It is to be used in Python to make matrix related operations simpler and easier. It would be a personal study and clone of the fundamental features of MATLAB&copy; and was thought to be applied to complex problems like the product with the eigensen-vectors for STEM, specifically for Civil Engineering Structural Analysis.
 
-This was made as a practice project during the holidays of my first-year semester break in my study of civil engineering in the university. It was an attempt to practice programming in application to engineering or mathematics.
+This was made as a practice project during the holidays of my first-year semester break in my study of civil engineering in the university. It was an attempt to practice programming in application to engineering or mathematics. For the meantime, I decided to specifilise on a niche, and instead of Automation and Scripting, I considered for Backend Development. And thus, based on the roadmap I was given, I used this project to practice Python and learn Git. This project made me switch from numbering my files for version to relying on git to do the version control.
 
 The matrix calculator should be capable of finding the solutions to any imultaneous linear equation of n equations and thus, should be able to calculate the following:
 
