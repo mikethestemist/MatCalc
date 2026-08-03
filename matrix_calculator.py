@@ -1,19 +1,3 @@
-# the matrix calculator should be capable of finding the solutions to any 
-# simultaneous linear equation of n equations and thus, should be able to calculate the following: 
-
-# Functionally (SLE-wise): 
-#   * determinant of a matrix
-#   * cofactor of a matrix
-#   * adjunct of a matrix 
-#   * inverse of a matrix
-
-#  Additionally (Matrix-wise): 
-#   * the dot-product of two matrices 
-#   * the cross-product of two matrices
-#   * generate an identity matrix
-#   * check if matrix is idempotent, involutary, singular, 
-#     and square or dimension of the matrix
-
 # -----   Matrix Sample   ----- #
 sample_matrix = [[1, 2, 3], 
                  [4, 5, 6], 
@@ -98,7 +82,7 @@ def subtract_matrices(m1, m2):
   else: 
     print(m1, 'and', m2, 'do not have the same order.')
 
-def multiply_matrices(m1, m2): 
+def multiply(m1, m2): 
   if can_multiply(m1, m2): 
     result = []
     for i in range(len(m1)): 
