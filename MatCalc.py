@@ -13,25 +13,35 @@ bad_sample_matrix = [[1, 2,],
 # -----   User Validations   ----- #
 def is_valid_num(num): 
   if type(num) == list: 
+    validity_set = set()
     for x in num:
-      return type(x) in [int, float]
+      validity_set.add(is_valid_num(x))
+    if len(validity_set) == 1 and list(validity_set)[0] == True: 
+      return  True
+    else: return False
   return type(num) in [int, float]
 
 
 # -----   Utilities and Checks   ----- #
-def is_valid_matrix(m): 
-  columns = set()
-  for row in m: 
-    columns.add(len(row))  
-    for i in row:
-      if not is_valid_num(i): 
-        print(f'{m} is contains an invalid number')
-        return False
-  if len(columns) == 1: 
-    return True
-  elif len(columns) != 1: 
-    print(f'{m} has inconsitent column entries.')
+def is_valid_matrix(m):
+  if m == None: 
     return False
+  elif not type(m) == list:
+    print(f'{m} is an invalid input.')
+    return False
+  else:
+    columns = set()
+    for row in m: 
+      columns.add(len(row))  
+      for i in row:
+        if not is_valid_num(i): 
+          print(f'{m} is contains an invalid number')
+          return False
+    if len(columns) == 1: 
+      return True
+    elif len(columns) != 1: 
+      print(f'{m} has inconsitent column entries.')
+      return False
 
 def get_order(m): 
   if is_valid_matrix(m): 
