@@ -24,9 +24,9 @@ def is_valid_matrix(m):
 def get_order(m): 
   if is_valid_matrix(m): 
     """m: rows, n: columns / entries per row"""
-    m_columns = len(m[0])
-    n_rows = len(m)
-    return (m_columns, n_rows )
+    m_rows = len(m[0])
+    n_cols = len(m)
+    return (m_rows, n_cols)
 
 def has_same_order(m1, m2): 
   return get_order(m1) == get_order(m2)
@@ -42,9 +42,9 @@ def is_square_matrix(m):
     return False
 
 def can_multiply(m1, m2): 
-  m1_row_count = get_order(m1)[0]
-  m2_col_count = get_order(m2)[1]
-  return m1_row_count == m2_col_count
+  m1_col_count = get_order(m1)[1]
+  m2_row_count = get_order(m2)[0]
+  return m1_col_count == m2_row_count
 
 def generate_identity_matrix(square_size): 
   m = []
