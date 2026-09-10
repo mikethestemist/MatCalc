@@ -1,7 +1,7 @@
 # MatCalc Todo list
 
 ### Urgent + Important
-- [ ] Correct m rows and n columns 
+- [X] Correct m rows and n columns 
 
 ### Urgent + Not Important
 - [ ] Validate for user input being numbers — make a function that checks if int / float

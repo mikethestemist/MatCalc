@@ -10,11 +10,23 @@ bad_sample_matrix = [[1, 2,],
 
 # print(matrix_sample)
 
+# -----   User Validations   ----- #
+def is_valid_num(num): 
+  if type(num) == list: 
+    for x in num:
+      return type(x) in [int, float]
+  return type(num) in [int, float]
+
+
 # -----   Utilities and Checks   ----- #
 def is_valid_matrix(m): 
   columns = set()
   for row in m: 
     columns.add(len(row))  
+    for i in row:
+      if not is_valid_num(i): 
+        print(f'{m} is contains an invalid number')
+        return False
   if len(columns) == 1: 
     return True
   elif len(columns) != 1: 
@@ -47,6 +59,9 @@ def can_multiply(m1, m2):
   return m1_col_count == m2_row_count
 
 def generate_identity_matrix(square_size): 
+  if not is_valid_num(square_size):
+    print('Invalid square size for identity matrix generation.')
+    return None
   m = []
   for i in range(square_size): 
     row = []
@@ -59,6 +74,10 @@ def generate_identity_matrix(square_size):
   return m
 
 def gen_rand(m_row, n_row, x_range): 
+  vals = [m_row, n_row, x_range]
+  if not is_valid_num(vals):
+    print('Invalid number as input for random matrix generation.')
+    return None
   m = []
   for i in range(m_row): 
     row = []
