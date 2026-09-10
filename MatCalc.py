@@ -24,8 +24,8 @@ def is_valid_matrix(m):
 def get_order(m): 
   if is_valid_matrix(m): 
     """m: rows, n: columns / entries per row"""
-    m_rows = len(m[0])
-    n_cols = len(m)
+    m_rows = len(m)
+    n_cols = len(m[0])
     return (m_rows, n_cols)
 
 def has_same_order(m1, m2): 
