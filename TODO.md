@@ -3,12 +3,13 @@
 ### Urgent + Important
 - [X] Correct m rows and n columns 
 
-- [ ] Debug multiply function
+- [ ] Debug `multiply()`
+- [ ] Update necessary functions to also return None  
 ### Urgent + Not Important
 - [X] Validate for user input being numbers — make a function that checks if int / float
 
 ### Not Urgent + Important
-- [ ] Show the parameter type for all functions — list[list[int]]
+- x ] Show the parameter type for all functions — list[list[int]]
 - [x] Make descriptive comments for these functions
 - [ ] Write test scripts for the matrix
 - [ ] Make functions be able to accept more than two matrices when possible

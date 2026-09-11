@@ -75,7 +75,7 @@ def can_multiply(m1: list[list[int | float]], m2: list[list[int | float]]) -> bo
 
 def generate_identity_matrix(square_size: int) -> list[list[int]]: 
   """It generates aa matrix — a two dimensional list of numbers — with its leading diagonal being 1 and all other values being zero."""
-  if type(square_size) == int:
+  if not type(square_size) == int:
     print('Invalid whole number for the square size of the identity matrix.')
     return None
   m = []
@@ -230,4 +230,4 @@ def inverse(m: list[list[int | float]]) -> list[list[int | float]]:
 # -----   Custom Calculation Functions   ----- #
 def solve_linear_system(A: list[list[int | float]], P: list[list[int | float]]) -> list[list[int | float]]: 
   """Takes in the matrix of the coefficients of the unknowns at the left-hand-side of a simultaneous linear equation as the first argument and takes in the answers to the equations as a matrix as the second argument and returns the solution to the system of linear equations.."""
-  return multiply(inverse(A), P)
+  return multiply(inverse(A), P) 
